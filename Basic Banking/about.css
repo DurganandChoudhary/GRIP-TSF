@@ -1,0 +1,33 @@
+body{
+        margin: 0;
+    padding: 0;
+    font-family: cursive;
+    background-image:url(MicrosoftTeams-image-39-1.png);
+}
+#navbar1{
+width:100%;
+    background-color: black;
+overflow: hidden;
+}
+#navbar1 ul{
+    list-style-type: none;
+    float:right;
+    font-family: cursive; 
+    background-color: rgb(6, 14, 245);
+
+}
+#navbar1 ul li {
+    display: inline-block;
+}
+#navbar1 ul li a{
+    text-decoration-style: none;
+    padding:2px 30px;
+    text-align: center;
+    color: white;
+    display: block;
+    font-weight: 900;
+    text-decoration: underline;
+}
+.aboutus{
+    text-align: center;
+}

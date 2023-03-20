@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title> customers list</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+
+   
+    <link rel="stylesheet" href="customers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+</head>
+<body>
+        <div id="navbar1">
+            <nav>  
+                <ul>
+                    <li><a href="bank.html"> HOME</a></li>
+                    <li><a href="customers.html"> CUSTOMERS </a></li>
+                    <li><a href="aboutus.html"> ABOUT US </a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+    <br><br>
+
+    <div class="my-info text-center">
+        <h2>Current Balance: <span id="myAccountBalance">25000</span><i class="rupee sign icon"></i></<h2><br><br>
+        <button class="ui inverted green button active"  data-toggle="modal" data-target="#sendMoney"><i class="user icon"></i>Send Money</button>
+        <a class="ui inverted orange button active" href="" data-toggle="modal" data-target="#transactionHistory"><i class="history icon"></i>Transactions History</a>
+    </div>
+
+    <br><br>
+    
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="font-weight: bold; color: black;" class="modal-title" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@email.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                                aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="ui inverted red button" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="sendMoney()" class="ui inverted green button" data-dismiss="modal">Send Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="font-weight: bold; color: black;" class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="ui inverted red button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="table-responsive">
+            <table class=" active table table-hover table table-bordered ">
+                <thead>
+                    <tr class="table-danger">
+                        <th style="font-weight: bold; color: black; text-align: center;" scope="col">Serial No.</th>
+                        <th style="font-weight: bold; color: black; text-align: center;" scope="col">Name</th>
+                        <th style="font-weight: bold; color: black; text-align: center;" scope="col">E-mail</th>
+                        <th style="font-weight: bold; color: black; text-align: center;" scope="col">Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td style="text-align: center;" scope="row">1</td>
+                        <td style="text-align: center;">Chitransh Panigrahi</td>
+                        <td style="text-align: center;">chitransh@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="shrutiBankBalance">30000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td  style="text-align: center;"scope="row">2</td>
+                        <td style="text-align: center;">Ravi Kumar</td>
+                        <td style="text-align: center;">ravi@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="sumanBankBalance">1000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td  style="text-align: center;"scope="row">3</td>
+                        <td style="text-align: center;">Sanjeet Kumar</td>
+                        <td style="text-align: center;">sanjeet@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="salisBankBalance">9000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td  style="text-align: center;"scope="row">4</td>
+                        <td style="text-align: center;">Vineet Kumar</td>
+                        <td style="text-align: center;">vineet@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="shubhoBankBalance">10000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td  style="text-align: center;"scope="row">5</td>
+                        <td style="text-align: center;">Natasha Kumari</td>
+                        <td style="text-align: center;">natasha@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="ishitaBankBalance">500</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td  style="text-align: center;"scope="row">6</td>
+                        <td style="text-align: center;">Aman Kumar</td>
+                        <td style="text-align: center;">aman@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="shanayaBankBalance">1500</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td style="text-align: center;">7</td>
+                        <td style="text-align: center;">Neha Kumari</td>
+                        <td style="text-align: center;">neha@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="aakashBankBalance">5000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td  style="text-align: center;"scope="row">8</td>
+                        <td style="text-align: center;">Khusboo Kumari</td>
+                        <td style="text-align: center;">khusboo@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="subhashreeBankBalance">20000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td  style="text-align: center;"scope="row">9</td>
+                        <td style="text-align: center;">Satyajeet Pradhan</td>
+                        <td style="text-align: center;">satyajeet@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="smritiBankBalance">14000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td  style="text-align: center;"scope="row">10</td>
+                        <td style="text-align: center;">Rahul Kumar</td>
+                        <td style="text-align: center;">rahul@email.com</td>
+                        <td style="text-align: center;">
+                            <p id="riyaBankBalance">12500</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    <br><br><br>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+</body>
+</html>
